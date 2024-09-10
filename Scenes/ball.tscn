@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8qt8nfmo33hx"]
+
+[ext_resource type="Script" path="res://Scenes/Script/ball.gd" id="1_ijj20"]
+[ext_resource type="Texture2D" uid="uid://c785qrr2d6akv" path="res://Assets/skeleton-animation_00.png" id="2_wsts0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83lhc"]
+radius = 24.0208
+
+[node name="Ball" type="CharacterBody2D"]
+position = Vector2(580, 350)
+script = ExtResource("1_ijj20")
+speed = 300.0
+max_speed = null
+lifes = null
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_83lhc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2.86102e-06, 0.999992)
+scale = Vector2(0.101772, 0.0947679)
+texture = ExtResource("2_wsts0")
