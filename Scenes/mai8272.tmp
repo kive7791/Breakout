@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://cah718n77p5l7"]
+
+[ext_resource type="PackedScene" uid="uid://c8qt8nfmo33hx" path="res://Scenes/ball.tscn" id="1_5lw1j"]
+[ext_resource type="PackedScene" uid="uid://dpa7fvp525ia4" path="res://Scenes/brick.tscn" id="3_hv6mn"]
+[ext_resource type="PackedScene" uid="uid://kh55jq8qtphm" path="res://Scenes/wall.tscn" id="3_qbds1"]
+[ext_resource type="PackedScene" uid="uid://bknxxx20tbcux" path="res://Scenes/slow_mo.tscn" id="4_gh5yc"]
+[ext_resource type="PackedScene" uid="uid://blbyf3urjjk1t" path="res://Scenes/death.tscn" id="4_olcw4"]
+[ext_resource type="PackedScene" uid="uid://t8jqda0iiusf" path="res://Scenes/UI.tscn" id="5_e8wdd"]
+[ext_resource type="PackedScene" uid="uid://bsf6ve136fvrw" path="res://Scenes/paddle.tscn" id="5_rr5bq"]
+[ext_resource type="FontFile" uid="uid://c7m6uycgagrl8" path="res://Assets/ARCADE.TTF" id="8_mmf36"]
+
+[node name="Main" type="Node2D" groups=["Bricks", "Paddle", "SlowMoPowerUp"]]
+
+[node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "ui", "score_label", "start_text") instance=ExtResource("1_5lw1j")]
+collision_mask = 14
+death_zone = NodePath("../Death")
+ui = NodePath("../UI")
+score_label = NodePath("../Score")
+start_text = NodePath("../StartText")
+
+[node name="SlowMo" type="Timer" parent="Ball"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 325)
+
+[node name="Paddle2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_rr5bq")]
+position = Vector2(580, 550)
+collision_layer = 2
+camera = NodePath("../Camera2D")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Cieling" parent="Walls" instance=ExtResource("3_qbds1")]
+position = Vector2(0, -10)
+collision_layer = 4
+
+[node name="Left_Wall" parent="Walls" instance=ExtResource("3_qbds1")]
+rotation = 1.5708
+collision_layer = 4
+
+[node name="Right_Wall2" parent="Walls" instance=ExtResource("3_qbds1")]
+position = Vector2(1167, 0)
+rotation = 1.5708
+collision_layer = 4
+
+[node name="Death" parent="." instance=ExtResource("4_olcw4")]
+position = Vector2(0, 659)
+
+[node name="UI" parent="." instance=ExtResource("5_e8wdd")]
+visible = false
+
+[node name="Brick" type="Node" parent="."]
+
+[node name="brick" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 100)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick2" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 200)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick3" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 300)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick4" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 400)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick5" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 100)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick6" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 200)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick7" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 300)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick8" parent="Brick" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 400)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="SlowMo" parent="Brick" groups=["Bricks", "SlowMoPowerUp"] instance=ExtResource("4_gh5yc")]
+position = Vector2(583, 304)
+collision_layer = 8
+
+[node name="Score" type="RichTextLabel" parent="."]
+offset_left = 957.0
+offset_top = 2.0
+offset_right = 1157.0
+offset_bottom = 54.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/normal_font = ExtResource("8_mmf36")
+theme_override_font_sizes/normal_font_size = 42
+text = "SCORE:0"
+fit_content = true
+scroll_active = false
+
+[node name="StartText" type="RichTextLabel" parent="."]
+offset_left = 362.0
+offset_top = 256.0
+offset_right = 829.0
+offset_bottom = 346.0
+theme_override_font_sizes/normal_font_size = 60
+text = "CLICK TO START"
+scroll_active = false
+
+[node name="LifesLabel" type="Label" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("8_mmf36")
+theme_override_font_sizes/font_size = 42
+text = "Lifes: 3"

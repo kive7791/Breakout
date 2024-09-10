@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bknxxx20tbcux"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_20gf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c85br"]
+size = Vector2(74, 20)
+
+[node name="SlowMo" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["SlowMoPowerUp"]]
+modulate = Color(1, 0.180392, 0.180392, 1)
+position = Vector2(9.53674e-07, 0)
+scale = Vector2(74, 20)
+texture = SubResource("CanvasTexture_20gf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c85br")
