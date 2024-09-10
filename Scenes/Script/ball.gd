@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			is_running = true
 			start_text.visible = false
 			visible = true
-			print("Click!")
+			#print("Click!")
 		return
 		
 	var collision: KinematicCollision2D = move_and_collide(forward * speed * delta)

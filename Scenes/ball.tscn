@@ -10,8 +10,6 @@ radius = 24.0208
 position = Vector2(580, 350)
 script = ExtResource("1_ijj20")
 speed = 300.0
-max_speed = null
-lifes = null
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_83lhc")
