@@ -21,6 +21,8 @@ Bricks=""
 Paddle=""
 GameOver=""
 SlowMoPowerUp=""
+Clear=""
+DoublePowerUp=""
 
 [input]
 

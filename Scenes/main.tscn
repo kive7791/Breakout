@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cah718n77p5l7"]
+[gd_scene load_steps=10 format=3 uid="uid://cah718n77p5l7"]
 
 [ext_resource type="PackedScene" uid="uid://c8qt8nfmo33hx" path="res://Scenes/ball.tscn" id="1_5lw1j"]
+[ext_resource type="Script" path="res://Scenes/camera_2d.gd" id="2_k0qif"]
 [ext_resource type="PackedScene" uid="uid://dpa7fvp525ia4" path="res://Scenes/brick.tscn" id="3_hv6mn"]
 [ext_resource type="PackedScene" uid="uid://kh55jq8qtphm" path="res://Scenes/wall.tscn" id="3_qbds1"]
 [ext_resource type="PackedScene" uid="uid://bknxxx20tbcux" path="res://Scenes/slow_mo.tscn" id="4_gh5yc"]
 [ext_resource type="PackedScene" uid="uid://blbyf3urjjk1t" path="res://Scenes/death.tscn" id="4_olcw4"]
+[ext_resource type="PackedScene" uid="uid://cays6btoice55" path="res://Scenes/double.tscn" id="5_buy6i"]
 [ext_resource type="PackedScene" uid="uid://bsf6ve136fvrw" path="res://Scenes/paddle.tscn" id="5_rr5bq"]
 [ext_resource type="FontFile" uid="uid://c7m6uycgagrl8" path="res://Assets/ARCADE.TTF" id="8_mmf36"]
 
 [node name="Main" type="Node2D" groups=["Bricks", "Paddle", "SlowMoPowerUp"]]
 
 [node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "score_label", "start_text", "lifes_label") instance=ExtResource("1_5lw1j")]
-position = Vector2(580, 398)
+position = Vector2(576, 398)
 collision_mask = 14
 death_zone = NodePath("../Death")
 score_label = NodePath("../Score")
@@ -21,10 +23,12 @@ lifes_label = NodePath("../LifesLabel")
 [node name="SlowMo" type="Timer" parent="Ball"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(580, 325)
+unique_name_in_owner = true
+position = Vector2(576, 325)
+script = ExtResource("2_k0qif")
 
 [node name="Paddle2" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("5_rr5bq")]
-position = Vector2(580, 550)
+position = Vector2(576, 550)
 collision_layer = 2
 camera = NodePath("../Camera2D")
 
@@ -46,100 +50,6 @@ collision_layer = 4
 [node name="Death" parent="." instance=ExtResource("4_olcw4")]
 position = Vector2(0, 659)
 
-[node name="Brick" type="Node" parent="."]
-
-[node name="Right" type="Node" parent="Brick"]
-
-[node name="brick" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(50, 100)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick2" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(50, 200)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick3" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(50, 300)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick4" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(50, 400)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick5" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(150, 100)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick6" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(150, 200)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick7" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(150, 300)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick8" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
-position = Vector2(150, 400)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="SlowMo" parent="Brick/Right" groups=["Bricks", "SlowMoPowerUp"] instance=ExtResource("4_gh5yc")]
-position = Vector2(103, 144)
-collision_layer = 8
-
-[node name="Right2" type="Node" parent="Brick"]
-
-[node name="brick" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1000, 103)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick2" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1000, 203)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick3" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1000, 303)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick4" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1000, 403)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick5" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1100, 103)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick6" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1100, 203)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick7" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1100, 303)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="brick8" parent="Brick/Right2" instance=ExtResource("3_hv6mn")]
-position = Vector2(1100, 403)
-collision_layer = 8
-up_direction = Vector2(0.0990148, 0.995086)
-
-[node name="SlowMo" parent="Brick/Right2" groups=["Bricks", "SlowMoPowerUp"] instance=ExtResource("4_gh5yc")]
-position = Vector2(1051, 356)
-collision_layer = 8
-
 [node name="Score" type="RichTextLabel" parent="."]
 offset_left = 957.0
 offset_top = 7.0
@@ -154,10 +64,10 @@ fit_content = true
 scroll_active = false
 
 [node name="StartText" type="RichTextLabel" parent="."]
-offset_left = 362.0
-offset_top = 256.0
-offset_right = 829.0
-offset_bottom = 346.0
+offset_left = 376.0
+offset_top = 257.0
+offset_right = 816.0
+offset_bottom = 428.0
 theme_override_fonts/normal_font = ExtResource("8_mmf36")
 theme_override_font_sizes/normal_font_size = 60
 text = "CLICK TO START"
@@ -175,3 +85,101 @@ size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("8_mmf36")
 theme_override_font_sizes/font_size = 42
 text = "Lifes: 3"
+
+[node name="Brick" type="Node" parent="."]
+
+[node name="Left" type="Node" parent="Brick"]
+
+[node name="Double" parent="Brick/Left" groups=["Bricks", "DoublePowerUp"] instance=ExtResource("5_buy6i")]
+position = Vector2(728, 400)
+collision_layer = 8
+
+[node name="brick" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 100)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick2" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 200)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick3" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 300)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick4" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(50, 400)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick5" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 100)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick6" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 200)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick7" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 300)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick8" parent="Brick/Left" instance=ExtResource("3_hv6mn")]
+position = Vector2(150, 400)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="SlowMo" parent="Brick/Left" groups=["Bricks", "SlowMoPowerUp"] instance=ExtResource("4_gh5yc")]
+position = Vector2(103, 144)
+collision_layer = 8
+
+[node name="Right" type="Node" parent="Brick"]
+
+[node name="brick" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1000, 103)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick2" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1000, 203)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick3" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1000, 303)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick4" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1000, 403)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick5" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1100, 103)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick6" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1100, 203)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick7" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1100, 303)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="brick8" parent="Brick/Right" instance=ExtResource("3_hv6mn")]
+position = Vector2(1100, 403)
+collision_layer = 8
+up_direction = Vector2(0.0990148, 0.995086)
+
+[node name="SlowMo" parent="Brick/Right" groups=["Bricks", "SlowMoPowerUp"] instance=ExtResource("4_gh5yc")]
+position = Vector2(1051, 356)
+collision_layer = 8

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cays6btoice55"]
+
+[ext_resource type="Texture2D" uid="uid://bhjhhxa1x2p01" path="res://Assets/gold_glass.png" id="1_ppe7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c85br"]
+size = Vector2(74, 20)
+
+[node name="Double" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["SlowMoPowerUp"]]
+modulate = Color(0.951702, 6.73831e-05, 0.72451, 1)
+position = Vector2(-4.76837e-07, 2.38419e-07)
+scale = Vector2(0.269091, 0.10929)
+texture = ExtResource("1_ppe7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c85br")

@@ -7,7 +7,6 @@
 radius = 24.0208
 
 [node name="Ball" type="CharacterBody2D"]
-position = Vector2(580, 350)
 script = ExtResource("1_ijj20")
 speed = 300.0
 

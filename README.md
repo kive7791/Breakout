@@ -1,13 +1,12 @@
 # Breakout
-This is a modification on the give project Breakout in class ATLS4140 10. 
-The main things that have been changed is the Visuals, the font, drawings, and blocks.
+This repository contains a modified version of the Breakout project from ATLS4140. The updates include changes to the visuals, font, drawings, and bricks.
 
-### Story Board Drawings 
-3 new features in the game:
-	- The game will stop after the lose of 3 lives
-	- After hiting block colored red
-		- The paddle will become smaller
-	- After the lose of the 3 lives goes to a different mini level
+## New Features
+### Story Board Drawings
+### Gameplay Enhancements 
+1. Game Over and Continuation: The game will now stop after you lose 3 lives. However, you can continue playing by clicking the screen.
+2. Red Block Interaction: When you hit a red block, two balls will be in play. The second ball is a decoy, so stay focused on the real one.
+3. Camera Shake Effect: The camera will shake each time a brick is hit, adding to the visual impact of the game.
 
-### Video of Game
-This short video will make an effort to showcase the abilities of the game.
+### Video Showcase
+A short video is available to demonstrate the new features and capabilities of the game. Please refer to the separate file for this video.
