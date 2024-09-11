@@ -3,6 +3,8 @@ This repository contains a modified version of the Breakout project from ATLS414
 
 ## New Features
 ### Story Board Drawings
+![StoryBoard_ATLS4140](https://github.com/user-attachments/assets/adfcb22e-5c9a-491f-99c2-bb1f20466b00)
+
 ### Gameplay Enhancements 
 1. Game Over and Continuation: The game will now stop after you lose 3 lives. However, you can continue playing by clicking the screen.
 2. Red Block Interaction: When you hit a red block, two balls will be in play. The second ball is a decoy, so stay focused on the real one.
